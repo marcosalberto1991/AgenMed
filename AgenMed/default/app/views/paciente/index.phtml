@@ -1,0 +1,168 @@
+<br>
+<div class="content">
+    <?php View::content() ?>
+    <h3>Menus</h3>
+
+    <br>
+</div>  
+<div>
+        <h4>Lista de Pacientes
+
+  
+<div class='input-group'>  
+<?php
+echo Html::link('Paciente/agregar','Añadir Pacientes',$attrs='class="btn btn-primary btn-xs"   ');
+echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+//echo "</div> <div class='input-group'> ";
+//echo "</div> <div class='input-group'> ";
+echo Form::open(); 
+echo Html::link('Paciente/index','Mostra todo los Paciente',$attrs='class="btn btn-primary btn-xs"   ');
+echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+echo '<input type="text" name="nombre" style="float:right ; width:200px"  class="form-control"  placeholder="Buscar" />';
+ 
+  echo Form::submit('Buscar',$attrs='class="btn btn-primary btn-xs"' ); 
+echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+
+ echo Form::hidden('paciente.Buscar',$attrs='type="number" style="float:right ; width:100px"  class="form-control"  placeholder="Buscar"');
+echo Form::close();
+        ?>
+        </div>
+</div>
+
+<br>
+        </h4>
+
+        
+<div class="col-md-12">
+
+
+        <div class="table-responsive">
+
+                
+            <table id="mytable" class="table table-bordred table-striped">       
+            <thead>
+                   
+                   <!--<th><input type="checkbox" id="checkall" /></th>
+                
+                   -->
+                <th>Asigna una Cita</th>
+                <th>Editar</th>      
+                <th>Eliminar</th>
+                <th>Eliminar</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Estado</th>
+            </thead>
+    <tbody>
+
+     <?php foreach ($listPaciente->items as $item) : ?>
+    <tr>
+        <td>
+        <?= Html::linkAction("cita/$item->id/", 'Asigna una Cita',$attrs='class="btn btn-primary btn-xs"   ') ?>
+        </td>
+        <td>
+        <?= Html::linkAction("edit/$item->id/", 'Editar',$attrs='class="btn btn-primary btn-xs"') ?>
+        </td>
+        <td>
+          <form>
+          <?= Html::linkAction("del/$item->id/", 'Borrar',$attrs='class="btn btn-danger btn-xs" data-title="delete" data-toggle="modal" data-target="#delete"') ?>
+          <form>
+        </td>
+        <td>
+           <a href="eliminarRegPartDest.php?laRef=<? echo '233'?>" onclick="return confirm('¿Estás seguro?')">Borrar</a>
+        </td>
+
+        <td><?= $item->nombres ?> </td>
+        <td> <?= $item->apellidos ?></td>
+        <td> <?= $item->telefono ?></td>
+        <td> <?= $item->correo ?></td>
+        <td> <?= $item->estado ?></td>
+
+    </tr>
+    <?php endforeach ?>
+
+</tbody>        
+</table>
+<div class="clearfix"></div>
+    <ul class="pagination pull-right">
+
+        <li>
+        <?php if($listPaciente->prev) echo Html::linkAction("index/$listPaciente->prev/", '<< Anterior |') ?>  
+        </li>
+        <li>
+        <?php if($listPaciente->next) echo Html::linkAction("index/$listPaciente->next/", 'Próximo >>') ?>
+
+
+
+        </li>
+    </ul>
+                
+        </div>    
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+      </div>
+          <div class="modal-body">
+          <div class="form-group">
+        <input class="form-control " type="text" placeholder="Mohsin">
+        </div>
+        <div class="form-group">
+        
+        <input class="form-control " type="text" placeholder="Irshad">
+        </div>
+        <div class="form-group">
+        <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
+    
+        
+        </div>
+      </div>
+          <div class="modal-footer ">
+        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+      </div>
+        </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+    </div>
+    
+    
+    
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+      <div class="modal-dialog">
+    <div class="modal-content">
+          <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+      </div>
+          <div class="modal-body">
+       
+       <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+       
+      </div>
+        <div class="modal-footer ">
+        <button type="button" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes
+
+
+          </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+      </div>
+        </div>
+
+
+
+

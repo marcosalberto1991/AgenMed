@@ -1,0 +1,18 @@
+<?php View::content(); ?>
+ 
+<div id="login">
+  <?php echo form_tag("login/index"); ?>
+  <div id="titulo"><h3>Inicio de Sesion</h3></div>
+  <div class="dato-form">
+    <div class="etiqueta"><label for="usuario">Correo:</label></div>
+    <div class="texto"><?php echo text_field_tag("correo","size: 10"); ?></div>
+  </div>
+  <div class="dato-form">
+    <div class="etiqueta"><label for="clave">Clave:</label></div>
+    <div class="texto"><?php echo password_field_tag("contrasena","size: 10"); ?></div>
+  </div>
+  <div class="dato-form">
+    <?php echo submit_tag("Ingresar","class: boton"); ?>
+  </div>
+  <?php echo end_form_tag(); ?></p>
+</div>

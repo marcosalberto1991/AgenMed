@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+
+<br>
+
+<script type="text/javascript">
+	
+	
+<h1>medigen</script>h1>
+</script>
+
+<!--
+<link href='../fullcalendar.min.css' rel='stylesheet' />
+<link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
+-->
+
+<!--
+<script src='../lib/moment.min.js'></script>
+<script src='../lib/jquery.min.js'></script>
+<script src='../fullcalendar.min.js'></script>
+-->
+<?php
+
+		
+?>
+
+<?php
+	
+
+	if(!Auth::is_valid()){
+ 		$this->redirect("principal/login");
+ 	}else{
+		
+
+ 	}
+
+
+ 	//echo "string $id";
+ 		$id=$_SESSION["idpa"];
+        $nombres=$_SESSION["nombrepa"];
+        $apellido=$_SESSION["apellidopa"];
+ 		$telefono=$_SESSION["telefonopa"];
+
+
+
+ 		//echo "$id $nombres $apellido $telefono";
+
+
+
+ 	$idmedi=Auth::get('id');
+$variable_php="variable en php we";
+echo '<script languaje="JavaScript">
+      var title="'.$id."".$nombres."".$apellido."".$telefono.'";
+      var id="'.$id.'";
+      var idmedi="'.$idmedi.'";
+
+
+            
+            
+            
+</script>';
+
+?>
+
+<script language="JavaScript" type="text/javascript">
+
+      //alert(idmedi);
+
+
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			
+
+
+
+
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			defaultDate: '2017-04-19',
+			navLinks: true, // can click day/week names to navigate views
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end) {
+
+				//var title = prompt('Añadir una Citas:');
+				//var id = prompt('id:');
+			 	//var title=<?php echo "$id $nombres $apellido $telefono"?>;
+				var eventData;
+
+					start = $.fullCalendar.formatDate(start, "YYYY-MM-DD HH:mm:ss");
+ 					end = $.fullCalendar.formatDate(end, "YYYY-MM-DD HH:mm:ss");
+					$.ajax({
+						 url: 'http://localhost/add_events.php',
+						 data: 'title='+ title+'&start='+ start +'&id='+id+ '&idmedi='+ idmedi +'&end='+ end ,
+						 type: "POST",
+						 success: function(json) {
+						 alert('OK');
+						 }
+						 });
+				//window.location.href = 'pagina.php?Variable=start' 
+			//window.setTimeout("location.href='menu.php?usuario=$cliente'",start) 
+
+				//var pagina=("agendamedikwe/citas/add/",start);
+				//window.location.href = 'pagina.php?Variable=',start; 
+				//var dert=("add/"+start);
+				//window.location.href=dert; 
+				//location.href=pagina;
+					function redireccionar() 
+					{
+					
+					} 
+				
+				if (title) {
+					eventData = {
+						title: title,
+						//title: title,
+						start: start,
+						end: end
+					};
+					$('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+					              //window.location=("agendamedik/media/");
+
+				}
+				$('#calendar').fullCalendar('unselect');
+			},
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			eventDrop: function(event, delta) {
+				 start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD HH:mm:ss");
+				 end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD HH:mm:ss");
+				 $.ajax({
+				 url: 'http://localhost/update_events.php',
+				 data: 'title='+ event.title+'&start='+ start +'&end='+ end +'&id='+ event.id ,
+				 type: "POST",
+				 success: function(json) {
+				 alert("OK");
+				 }
+				 });
+				},
+				eventResize: function(event) {
+				 start = $.fullCalendar.formatDate(event.start, "YYYY-MM-DD HH:mm:ss");
+				 end = $.fullCalendar.formatDate(event.end, "YYYY-MM-DD HH:mm:ss");
+				 $.ajax({
+				 url: 'http://localhost/update_events.php',
+				 data: 'title='+ event.title+'&start='+ start +'&end='+ end +'&id='+ event.id ,
+				 type: "POST",
+				 success: function(json) {
+				 alert("OK");
+				 }
+				 });
+				 
+				},
+				
+			
+
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2017-03-01'
+				},
+				{
+					title: 'Long Event marcos',
+					start: '2017-04-14',
+					end: '2017-04-15'
+
+				},
+
+				{
+					title: 'Long Event',
+					start: '2017-03-07',
+					end: '2017-03-10'
+				},
+				<?php foreach ($listCita->items as $item): ?>
+				<?php echo "{ title:'$item->nombres $item->apellidos $item->telefono',"; ?>
+				<?php echo "id:'$item->idc',"; ?>
+	
+				<?php echo "start:'$item->horainicio',"; ?>
+	
+				<?php echo "end:'$item->horafinal'},"; ?>
+				<?php endforeach ?>
+
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2017-01-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2017-01-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2017-01-11',
+					end: '2017-01-13'
+				},
+				{
+					title: 'Meeting ERER',
+					start: '2017-01-12 10:34:00',
+					end: '2017-01-12 12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2017-01-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2017-01-12 14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2017-01-12T17:30:00'
+				},
+
+
+				
+				{
+					title: 'Dinner',
+					start: '2017-03-12T20:00:00'
+				},
+
+
+
+				{
+					<?php echo "title: 'Birthday Party tosdsd'"?>,
+					start: '2017-03-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2017-03-28'
+				}
+			]
+		});
+		
+	});
+
+</script>
+<style>
+
+	body {
+		margin: 40px 10px;
+		padding: 0;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		font-size: 14px;
+	}
+
+	#calendar {
+		max-width: 900px;
+		margin: 0 auto;
+	}
+
+</style>
+</head>
+<body>
+<br>
+<br>
+
+
+	
+
+	<div id='calendar'>
+		
+
+	</div>
+
+
+
+</body>
+</html>

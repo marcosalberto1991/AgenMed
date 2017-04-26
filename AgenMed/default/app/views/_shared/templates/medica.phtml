@@ -1,0 +1,262 @@
+
+  
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>KumbiaPHP Framework</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Agenda Medica</title>
+
+    <?php Tag::css('kumbia') ?>
+
+  	 
+<?php
+
+  	echo Tag::js('js/jquery');
+    echo Tag::js('js/tether.min');
+    echo Tag::js('js/bootstrap.min');
+    //echo Tag::css('login') 
+?>
+<?php Tag::css('cale/fullcalendar.min'); ?>
+<?php //Tag::css('cale/fullcalendar.print.min'); ?>
+
+   <?php 
+    echo Tag::js('lib/moment.min');
+    echo Tag::js('lib/jquery.min');
+    echo Tag::js('lib/jquery-ui.min');
+
+
+    echo Tag::js('fullcalendar.min');
+   ?>
+  
+    <?php Tag::css('css/bootstrap.min') ?>
+    <?php Tag::css('css/heroic-features') ?>
+    <?php Tag::css('css/bootstrap.min') ?>
+    <?php Tag::css('inicio/agency.min') ?>
+    <?php Tag::css('inicio/scrolling-nav') ?>
+
+  	<?= Html::includeCss() ?>
+
+
+     <style>
+    .navbar-toggler {
+        z-index: 1;
+    }
+    
+    @media (max-width: 576px) {
+        nav > .container {
+            width: 80%;
+        }
+    }
+    </style>
+
+
+    <script language="JavaScript">
+function aviso(url){
+if (!confirm("ALERTA!! va a proceder a eliminar este registro, si desea eliminarlo de click en ACEPTAR\n de lo contrario de click en CANCELAR.")) {
+return false;
+}
+else {
+document.location = url;
+return true;
+}
+}
+</script>
+
+
+
+</head>
+
+<body>
+
+        
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container">
+            <a class="navbar-brand" href="#">Agenda MediK</a>
+            <div class="collapse navbar-collapse" id="navbarExample">
+               
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+
+
+
+            <?php  
+            if(Auth::is_valid()){
+            //echo Html::link('index/inicio/2017-04-06','Citas wer',$attrs ="class='nav-link'"); 
+            }
+
+
+            ?>
+
+
+                        
+                    </li>
+                    <li class="nav-item">
+            <?php 
+            
+
+            if(Auth::is_valid()){
+            echo Html::link('Citas/Index2','Citas',$attrs ="class='nav-link'"); 
+            }           
+            ?>
+                    </li>
+            <li class="nav-item">
+            <?php  
+            if(Auth::is_valid()){
+            echo Html::link('Paciente','Paciente',$attrs ="class='nav-link'"); 
+            }           
+            ?>
+            
+            </li>
+            <li class="nav-item">
+            <?php  
+            if(Auth::is_valid()){
+            //echo Html::link('login/salir','Cerrar Session',$attrs ="class='nav-link'"); 
+            }           
+            ?>
+            
+            </li>
+            <?php
+            if(Auth::is_valid()){
+                echo '
+             <li class="nav-item dropdown">
+                          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Login <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu">
+                      '; }   ?>
+                           <?php  
+                              if(Auth::is_valid()){
+                              echo Html::link('login/salir','Cerrar Session',$attrs ="class='nav-link'");
+                              $nombresme=$_SESSION["nombrepame"];
+
+                              echo '
+                          </ul>
+                          <ul class="dropdown-menu">
+                          <div class="panel panel-default">
+ 
+                          <div class="panel-heading nav-link" >Perfil de Usuario</div>
+                          <div class="panel-body">
+                            <p class="nav-link" >Informacion</p>
+                          </div>
+
+                          <!-- Table -->
+                          <table class="table">
+                            <tr><td>Nombrer</td><td>';echo "$nombresme es"  ;echo' </td></tr>
+                            <td>Apellido</td><td>Saavedra</td></tr>
+                            <td>Correo</td><td>Marcos@gmail.com</td></tr>
+                            </tr>
+
+
+                          </table>
+                    </div>
+
+            <li><a href="#" class="nav-link"  >Action</a></li>
+            <li>'; 
+            echo Html::link('login/salir','Editar perfil',$attrs ="class='nav-link'");
+            echo '</li>
+             <li>'; 
+            echo Html::link('login/salir','Cerrar Session',$attrs ="class='nav-link'");
+            echo '</li>
+            
+
+          </ul>
+                          </ul>
+
+
+
+
+                                '; 
+                                
+                                }           
+                                ?>
+                            
+                                
+                                   
+                          <ul class="dropdown-menu">
+                          <?php 
+                        if(Auth::is_valid()){   
+                          echo '<li role="separator" class="divider"></li>';
+                        }
+                          ?>
+
+                          </ul>
+                        </li>
+                
+
+                </ul>
+                
+
+                
+                
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+    <!-- Page Content -->
+    <div class="container">
+        
+    
+        <div class="col-lg-12 col-md-12 mb-12">
+            <?php View::content() ?>
+        </div>
+        
+
+    </div>
+   
+    
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 paginacion">
+
+                Copyright © Agenda MediK,2017
+                <br>
+                Desarrollado por
+                <br>
+                Marcos Alberto Saavedra
+                <br>
+                lizeth Nayibe Martinez Sanchez
+                </div>
+            </div>    
+
+    </div>
+
+
+<?php
+  
+
+
+
+
+?>
+</body>
+
+</html>
+
+
+
+
+

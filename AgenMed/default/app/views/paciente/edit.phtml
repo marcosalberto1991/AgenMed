@@ -1,0 +1,120 @@
+<br>
+
+
+
+<div class="content">
+    <h3>Menus</h3>
+    <?php View::content() ?>
+    <br>
+</div>
+    <h4>Añadir un Nuevo Paciente
+<?php  //echo Html::link('Paciente/Añadir','Añadir Pacientes',$attrs='class="btn btn-primary btn-xs"   '); ?>
+<br>
+        </h4>
+<div class="content">
+    <?php echo Form::open(); ?>
+    <?php echo Form::hidden('paciente.id') ?>
+
+<div class="col-md-5">
+
+
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">cedula</label>
+        <?php echo Form::number('paciente.cedula',$attrs='type="number" class="form-control"  placeholder="number"',$value='');
+
+        ?>
+        
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <?php echo Form::text('paciente.nombres',$attrs='type="number" class="form-control"  placeholder="Nombre"',$value='');
+        ?>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Apellido</label>
+        <?php echo Form::text('paciente.apellidos',$attrs='type="number" class="form-control"  placeholder="Apellido"',$value='');
+        ?>
+      </div>
+
+
+
+        </div>
+<div class="col-md-5">
+
+      
+      <div class="form-group">
+        <label for="exampleInputEmail1">Telefono</label>
+        <?php echo Form::number('paciente.telefono',$attrs='type="number" class="form-control"  placeholder="Telefono"',$value='');
+        ?>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Edad</label>
+        <?php echo Form::number('paciente.edad',$attrs='type="number" class="form-control"  placeholder="Edad"',$value='');
+        ?>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">correo</label>
+        <?php echo Form::email('paciente.correo',$attrs='type="number" class="form-control"  placeholder="correo"',$value='');
+        ?>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Direccion</label>
+        <?php echo Form::text('paciente.direccion',$attrs='type="number" class="form-control"  placeholder="Direccion"',$value='');
+        ?>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Estado</label>
+        <?php 
+        // echo Form::text('paciente.estado',$attrs='type="number" class="form-control"  placeholder="Estado"',$value='');
+
+         $ar2 = array('A','I','F');
+          echo Form::Select('paciente.estado', $ar2, $attrs='type="number" value="paciente.genero" class="form-control"  placeholder="Genero"',"A");
+
+        ?>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Genero</label>
+        <?php
+          $ar2 = array('M','F');
+          echo Form::Select('paciente.genero', $ar2, $attrs='type="number" value="paciente.genero" class="form-control"  placeholder="Genero"',"M");
+
+          //echo Form::Select('paciente.genero', $ar2, NULL,'M');
+
+
+
+        ?>
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Fecha Nacimiento</label>
+        <?php echo Form::text('paciente.fechanacimiento',$attrs='type="number" class="form-control"  placeholder="Fecha Nacimiento"',$value='');
+        ?>
+      </div>
+      
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nacionalidad</label>
+        <?php echo Form::text('paciente.nacionalidad',$attrs='type="number" class="form-control"  placeholder="Nacionalidad"',$value='');
+        ?>
+      </div>
+      <!--
+      <button type="submit" class="btn btn-default">Submit</button>
+      -->
+      <?php echo Form::submit('enviar',$attrs='class="btn btn-primary btn-xs"'); ?>
+</div>
+</div>
+
+    <?php echo Form::close(); ?>
+
+
+          
+
+
+
+
+
+

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>VillalexRed </title>
+
+    <!-- Bootstrap Core CSS -->
+    <?php Tag::css('inicio/agency.min') ?>
+    <?php Tag::css('inicio/bootstrap') ?>
+    <?php Tag::css('inicio/bootstrap.min') ?>
+    <?php Tag::css('inicio/scrolling-nav') ?>
+
+
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/agency.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        
+        <div class="container">
+
+            <div class="navbar-header page-scroll">
+        
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    
+                Agenda Medik
+
+                </a>
+
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top">
+                                                   
+
+                        </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Quienes Somos</a>
+                    </li>
+                    <li>
+                    <!--
+                        <a class="page-scroll" href="#services">Servicios</a>
+                    -->
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contáctenos</a>
+                    </li>
+                    <li>
+                    <?php echo Html::link('login/ingresa','Ingresar',$attrs='class="page-scroll"'); ?>
+
+                    </li>
+                    <!--
+                    <li class="dropdown">
+
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <form class="navbar-form navbar-left" role="search">
+                                  <div class="form-group">
+                                    <li class="sutmiindex" >
+                                    <h5 class="color-blanco">correo</h5>
+                                        <input type="text" class="form-control" placeholder="Correo">
+                                    </li>
+
+                                    <li  class="sutmiindex2" >
+                                    <h5>Contraseña</h5>
+                                        <input type="text" class="form-control" placeholder="contraseña">
+                                    </li>
+
+                                  </div>
+                                  <li role="separator" class="divider"></li>
+                                  <li  class="sutmiindex" >
+                                  <h3><button type="submit" class="label label-default" >Inicia Sesión</button>
+                                    </h3>
+                                    </li>
+                                    <li>
+                                    <h3><button type="submit" class="label label-default" >Crear una cuenta</button>
+                                    </h3>
+                                        
+                                    </li>
+
+
+
+                                </form>
+                                
+                                   
+                          </ul>
+                        </li>
+                        -->
+                        <!--
+                        <li class="dropdown">
+                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login <span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+
+                          </ul>
+                            
+                        </li>
+                        -->
+                </ul>
+
+                <div class="logo">
+                <!--
+                <img align="right" class="logo" width="160" height="60" src="img/logovillaalexandre.png">
+                -->
+                <?php echo Html::img('inicio/logovillaalexandre.png',$attrs =' align="right" class="logo" width="160" height="60"' );?>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+   
+
+
+
+
+    <header>
+        <div class="container" id="intro" class="intro-section ">
+            <div class="intro-text">
+                <div class="intro-lead-in">Bienvenido a</div>
+                <div class="intro-heading">Agenda Medik</div>
+               <!--
+                <a href="#services" class="page-scroll btn btn-xl">Ir a Agenda Medik </a>
+-->
+               <?php echo Html::link('login/ingresa','Ir a Agenda Medik',$attrs='class="page-scroll btn btn-xl"'); ?>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12  abouttex">
+                    <p class="tamaño" >Medigen</p>
+                </div>
+                
+                <div class="col-sm-6 col-md-4 ">
+                    <div class="thumbnail">
+                        
+                        <?php echo Html::img('inicio/indeximg1.jpg'); ?>
+                        <div class="caption">
+                        <h3>Asesoramos</h3>
+                        <p>Asesoramos el uso de de la tecnologia y aplicaciones</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Leer</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <?php echo Html::img('inicio/indeximg2.jpg'); ?>
+
+                        <div class="caption">
+                        <h3>Redes Libres</h3>
+                        <p>la apropiacion de redes libres en la comunidad y los beneficios que obtiene</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Leer</a> </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <?php echo Html::img('inicio/indeximg3.jpg'); ?>
+
+                        <div class="caption">
+                        <h3>uso de energia renovable  </h3>
+                        <p>capacitacion para el uso de herramientas tecnologicas </p>
+                        <p><a href="#" class="btn btn-primary" role="button">Leer</a> </p>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="col-lg-4">
+                    <h5>Servicio virtual de biblioteca para la comunidad   </h5>
+                </div>
+                <div class="col-lg-4">
+                    <h5>Servicio comunitarios de consultorias medicas  </h5>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 abouttex" >
+                    <h1>contáctenos</h1>
+                </div>
+                <form name="frmContacto" method="post" action="sendbymail.php">
+                    <div class="input-group input-group-lg contaternos">
+                        <span class="input-group-addon" id="sizing-addon1">Nombre</span>
+                        <input type="text" name="first_name" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon1">
+                    </div>
+                    <div class="input-group input-group-lg contaternos">
+                        <span class="input-group-addon" id="sizing-addon1">Apellido</span>
+                        <input type="text" name="last_name" class="form-control" placeholder="Apellido" aria-describedby="sizing-addon1">
+                    </div>
+
+                    <div class="input-group input-group-lg contaternos">
+                        <span class="input-group-addon" id="sizing-addon1">Email</span>
+                        <input type="text" name="email" class="form-control" placeholder="Email" aria-describedby="sizing-addon1">
+                    </div>
+
+                    <div class="input-group input-group-lg contaternos">
+                        <span class="input-group-addon" id="sizing-addon1">Telefonos</span>
+                        <input type="text" name="telephone" class="form-control" placeholder="Telefonos" aria-describedby="sizing-addon1">
+                    </div>
+                    <div class="input-group input-group-lg contaternos">
+                        <span class="input-group-addon" id="sizing-addon1">Mensajes</span>
+                        <input type="text" name="comments" class="form-control" placeholder="Mensajes" aria-describedby="sizing-addon1">
+                    </div>
+
+                    <input   type="submit" value="Enviar" class="page-scroll btn btn-xl">
+            </div></form>
+        </div>
+    </section>
+
+    
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 paginacion">
+
+                Copyright © Agenda MediK,2017
+                <br>
+                Desarrollado por
+                <br>
+                Marcos Alberto Saavedra
+                <br>
+                lizeth Nayibe Martinez Sanchez
+                </div>
+            </div>    
+
+    </div>
+            
+    <!-- jQuery -->
+    <?php
+    echo Tag::js('inicio/jquery');
+    echo Tag::js('inicio/bootstrap.min');
+    echo Tag::js('inicio/jquery.easing.min');
+    echo Tag::js('inicio/scrolling-nav');
+    //echo Tag::js('inicio/jquery');
+
+
+    ?>
+   
+
+</body>
+
+</html>
+
+  
+    <title>Agenda MediK</title>
+
+    <?php Tag::css('kumbia') ?>
+
+  	 
+
+  	<?= Html::includeCss() ?>
+
+
+            
+  			<?php View::content() ?>
+
+
+
+
+
+
